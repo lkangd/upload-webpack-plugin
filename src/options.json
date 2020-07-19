@@ -1,0 +1,67 @@
+{
+  "type": "object",
+  "properties": {
+    "uploader": {
+      "description": "A function used to upload assets, this function needs to return a 'Promise'(https://github.com/lkangd/upload-webpack-plugin#uploader).",
+      "instanceof": "Function"
+    },
+    "options": {
+      "description": "Extra non-essential options.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enable": {
+          "description": "Switch for easy environment switching(https://github.com/lkangd/upload-webpack-plugin#enable).",
+          "type": "boolean"
+        },
+        "sync": {
+          "description": "Synchronous upload, the packaging logic will continue to be executed when all resources are uploaded successfully or failed(https://github.com/lkangd/upload-webpack-plugin#sync).",
+          "type": "boolean"
+        },
+        "gather": {
+          "description": "Get all the assets that need to be uploaded at one time. If this option is specified, the 'uploader' function needs to return a result 'map' synchronously.(https://github.com/lkangd/upload-webpack-plugin#gather).",
+          "type": "boolean"
+        },
+        "exclude": {
+          "description": "Types of assets that do not need to upload(https://github.com/lkangd/upload-webpack-plugin#exclude).",
+          "uniqueItems": true,
+          "items": [{ "type": "string" }],
+          "additionalItems": { "instanceof": "RegExp" }
+        },
+        "include": {
+          "description": "Types of assets that only need to upload, if this option is specified, the 'exclude' option will be ignored(https://github.com/lkangd/upload-webpack-plugin#include).",
+          "uniqueItems": true,
+          "items": [{ "type": "string" }],
+          "additionalItems": { "instanceof": "RegExp" }
+        },
+        "clean": {
+          "description": "If this option is specified, if the assets has been uploaded successfully, the assets will not emit to local directory(https://github.com/lkangd/upload-webpack-plugin#clean).",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "instanceof": "RegExp"
+            },
+            {
+              "uniqueItems": true,
+              "items": [{ "type": "string" }],
+              "additionalItems": { "instanceof": "RegExp" }
+            }
+          ]
+        },
+        "toReplaceFileTypes": {
+          "description": "Types of assets that need to replace reference link of the uploaded assets. default: ['.css', '.js', '.html'].(https://github.com/lkangd/upload-webpack-plugin#toReplaceFileTypes)",
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+  "required": ["uploader"],
+  "additionalProperties": false
+}
