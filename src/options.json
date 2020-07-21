@@ -57,6 +57,10 @@
               "type": "boolean"
             }
           }
+        },
+        "muteLog": {
+          "description": "Mute all upload log(https://github.com/lkangd/upload-webpack-plugin#muteLog).",
+          "type": "boolean"
         }
       }
     }

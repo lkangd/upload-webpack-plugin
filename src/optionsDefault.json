@@ -9,6 +9,7 @@
     "replace": {
       "typesWithOrder": [".css", ".js", ".html"],
       "useRealFilename": false
-    }
+    },
+    "muteLog": false
   }
 }
