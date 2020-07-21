@@ -5,9 +5,8 @@ export default class Spinner {
   constructor(options = { prefixText: '🌟' }) {
     this.options = options;
     this.fileCount = 0;
-    this.uploaded = 0;
     this.uploading = 0;
-    this.spinnerMaps = {};
+    this.uploadedFiles = {};
   }
   start(filename) {
     this.uploading += 1;
@@ -19,14 +18,14 @@ export default class Spinner {
     }
   }
   end(filename, resultUrl) {
-    this.uploaded += 1;
-    this.spinnerMaps[filename] = resultUrl;
-    if (this.isOver()) {
-      this.spinner && this.spinner.succeed(`Upload complete ${this.uploaded}/${this.fileCount}`);
-      Object.keys(this.spinnerMaps).forEach(key => {
+    this.uploadedFiles[filename] = resultUrl;
+    const uploadedFilenames = Object.keys(this.uploadedFiles);
+    if (uploadedFilenames.length === this.fileCount) {
+      this.spinner && this.spinner.succeed(`Upload complete ${this.fileCount}/${this.fileCount}`);
+      uploadedFilenames.forEach(key => {
         let text = `${chalk.green(key)} is uploaded`;
-        if (this.spinnerMaps[key]) {
-          text += ` and it will be as ${chalk.blue(this.spinnerMaps[key])}`;
+        if (this.uploadedFiles[key]) {
+          text += ` and it will be as ${chalk.blue(this.uploadedFiles[key])}`;
         }
         ora({ ...this.options, text }).succeed();
       });
@@ -34,8 +33,5 @@ export default class Spinner {
   }
   setFileCount(fileCount) {
     this.fileCount = fileCount;
-  }
-  isOver() {
-    return this.fileCount === this.uploaded;
   }
 }
