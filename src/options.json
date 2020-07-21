@@ -2,7 +2,7 @@
   "type": "object",
   "properties": {
     "uploader": {
-      "description": "A function used to upload assets, this function needs to return a 'Promise'(https://github.com/lkangd/upload-webpack-plugin#uploader).",
+      "description": "A function used to upload assets(https://github.com/lkangd/upload-webpack-plugin#uploader).",
       "instanceof": "Function"
     },
     "options": {
@@ -14,50 +14,49 @@
           "description": "Switch for easy environment switching(https://github.com/lkangd/upload-webpack-plugin#enable).",
           "type": "boolean"
         },
-        "sync": {
-          "description": "Synchronous upload, the packaging logic will continue to be executed when all resources are uploaded successfully or failed(https://github.com/lkangd/upload-webpack-plugin#sync).",
-          "type": "boolean"
-        },
         "gather": {
           "description": "Get all the assets that need to be uploaded at one time. If this option is specified, the 'uploader' function needs to return a result 'map' synchronously.(https://github.com/lkangd/upload-webpack-plugin#gather).",
           "type": "boolean"
         },
         "exclude": {
           "description": "Types of assets that do not need to upload(https://github.com/lkangd/upload-webpack-plugin#exclude).",
+          "type": "array",
           "uniqueItems": true,
-          "items": [{ "type": "string" }],
-          "additionalItems": { "instanceof": "RegExp" }
+          "items": {
+            "anyOf": [{ "type": "string" }, { "instanceof": "RegExp" }]
+          }
         },
         "include": {
-          "description": "Types of assets that only need to upload, if this option is specified, the 'exclude' option will be ignored(https://github.com/lkangd/upload-webpack-plugin#include).",
-          "uniqueItems": true,
-          "items": [{ "type": "string" }],
-          "additionalItems": { "instanceof": "RegExp" }
+          "description": "Types of assets that only need to upload(https://github.com/lkangd/upload-webpack-plugin#include).",
+          "$ref": "#/properties/options/properties/exclude"
         },
         "clean": {
-          "description": "If this option is specified, if the assets has been uploaded successfully, the assets will not emit to local directory(https://github.com/lkangd/upload-webpack-plugin#clean).",
-          "oneOf": [
+          "description": "If this option is specified, when the assets has been uploaded successfully, it will not emit to local directory(https://github.com/lkangd/upload-webpack-plugin#clean).",
+          "anyOf": [
             {
               "type": "boolean"
             },
             {
-              "type": "string"
-            },
-            {
-              "instanceof": "RegExp"
-            },
-            {
-              "uniqueItems": true,
-              "items": [{ "type": "string" }],
-              "additionalItems": { "instanceof": "RegExp" }
+              "$ref": "#/properties/options/properties/exclude"
             }
           ]
         },
-        "toReplaceFileTypes": {
-          "description": "Types of assets that need to replace reference link of the uploaded assets. default: ['.css', '.js', '.html'].(https://github.com/lkangd/upload-webpack-plugin#toReplaceFileTypes)",
-          "type": "array",
-          "uniqueItems": true,
-          "items": { "type": "string" }
+        "replace": {
+          "description": "Replace reference link of the uploaded assets.(https://github.com/lkangd/upload-webpack-plugin#replace)",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "typesWithOrder": {
+              "description": "default: ['.css', '.js', '.html']",
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "type": "string" }
+            },
+            "useRealFilename": {
+              "description": "Normally the plugin will use pathname like '/path/path/filename.ext' to replace the local file url, set this option true to use its real filename 'filename.ext'.",
+              "type": "boolean"
+            }
+          }
         }
       }
     }

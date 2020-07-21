@@ -1,0 +1,14 @@
+{
+  "uploader": null,
+  "options": {
+    "enable": true,
+    "gather": false,
+    "exclude": [],
+    "include": [],
+    "clean": false,
+    "replace": {
+      "typesWithOrder": [".css", ".js", ".html"],
+      "useRealFilename": false
+    }
+  }
+}
