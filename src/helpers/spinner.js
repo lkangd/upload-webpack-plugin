@@ -7,6 +7,7 @@ export default class Spinner {
     this.fileCount = 0;
     this.uploading = 0;
     this.uploadedFiles = {};
+    this.delRecords = {};
   }
   start(filename) {
     this.uploading += 1;
@@ -33,5 +34,11 @@ export default class Spinner {
   }
   setFileCount(fileCount) {
     this.fileCount = fileCount;
+  }
+  delCount(filename) {
+    if (this.delRecords[filename]) return;
+
+    this.delRecords[filename] = true;
+    this.fileCount -= 1;
   }
 }
