@@ -20,6 +20,9 @@ export default class Spinner {
   }
   end(filename, resultUrl) {
     this.uploadedFiles[filename] = resultUrl;
+    this.handleOver();
+  }
+  handleOver() {
     const uploadedFilenames = Object.keys(this.uploadedFiles);
     if (uploadedFilenames.length === this.fileCount) {
       this.spinner && this.spinner.succeed(`Upload complete ${this.fileCount}/${this.fileCount}`);
@@ -40,5 +43,6 @@ export default class Spinner {
 
     this.delRecords[filename] = true;
     this.fileCount -= 1;
+    this.handleOver();
   }
 }
