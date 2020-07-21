@@ -8,6 +8,14 @@ export function isPlainObject(val) {
   return toString.call(val) === '[object Object]';
 }
 
+export function isArray(val) {
+  return toString.call(val) === '[object Array]';
+}
+
+export function isRegExp(val) {
+  return toString.call(val) === '[object RegExp]';
+}
+
 export function isOwnProperty(obj, key) {
   return hasOwnProperty.call(obj, key);
 }
