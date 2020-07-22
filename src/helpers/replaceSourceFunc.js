@@ -47,5 +47,10 @@ export function getCssChunkLoadFuncVarName(source, funcOriginSourceBody) {
 }
 
 export function genDotSeparateRegexp(filename, flags = '') {
-  return new RegExp(`${filename.split(/[^(\w|\d)]/).join('.*?')}`, flags);
+  return new RegExp(
+    `${String(filename)
+      .split(/[^(\w|\d)]/)
+      .join('.*?')}`,
+    flags,
+  );
 }
