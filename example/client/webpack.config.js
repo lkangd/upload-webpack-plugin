@@ -3,12 +3,13 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const UploadWebpackPlugin = require('../../dist/cjs');
 const uploader = require('./uploader');
-// const PUBLIC_PATH = 'https://cdn.lkangd.com/';
-const PUBLIC_PATH = '';
+const PUBLIC_PATH = 'https://cdn.lkangd.com/';
 
 const genPublicPath = path => {
+  // return '';
   return `${PUBLIC_PATH}${path}`;
 };
 
@@ -52,7 +53,7 @@ module.exports = {
     ],
   },
   optimization: {
-    // minimize: false,
+    minimize: false,
     splitChunks: {
       cacheGroups: {
         common: {
@@ -75,8 +76,8 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({ filename: 'index.html', chunks: ['main'], template: path.resolve(__dirname, 'index.html') }),
-    new HtmlWebpackPlugin({ filename: 'sub.html', chunks: ['sub'], template: path.resolve(__dirname, 'index.html') }),
+    new HtmlWebpackPlugin({ filename: 'index.html', chunks: ['main'], template: path.resolve(__dirname, 'index.html'), minify: false }),
+    new HtmlWebpackPlugin({ filename: 'sub.html', chunks: ['sub'], template: path.resolve(__dirname, 'index.html'), minify: false }),
     new CopyWebpackPlugin({ patterns: [{ from: path.resolve(__dirname, 'static'), to: path.resolve(__dirname, 'dist/static') }] }),
     new MiniCssExtractPlugin({
       publicPath: genPublicPath('css/'),
@@ -84,6 +85,21 @@ module.exports = {
       chunkFilename: '[name].[chunkhash:7].bundle.css',
       ignoreOrder: true,
     }),
-    new UploadWebpackPlugin({ uploader }),
+    new UploadWebpackPlugin({
+      uploader,
+      options: {
+        enable: false,
+        muteLog: false,
+        // gather: true,
+        // clean: [/.*\.((?!(html)).)+/],
+        // exclude: ['index.html', /\.ttf$/, /\.js$/, 'dynamicSub.1e2a156.2dce103.bundle.js', 'dynamic.56ad341.bundle.css'],
+        // include: ['index.html', /\.ttf$/, /\.js$/, 'dynamicSub.1e2a156.2dce103.bundle.js', 'dynamicSub.1e2a156.bundle.css'],
+        replace: {
+          // typesWithOrder: [],
+          useRealFilename: true,
+        },
+      },
+    }),
+    // new OptimizeCSSAssetsPlugin({})
   ],
 };
