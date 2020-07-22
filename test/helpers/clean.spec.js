@@ -16,8 +16,7 @@ describe('helpers:clean', () => {
   test('should do nothing when the "options" is equal "false"', () => {
     const compilation = getCompilation();
     const result = clean(false, compilation, 'foo');
-    // eslint-disable-next-line no-undefined
-    expect(result).toBe(undefined);
+    expect(result).toBeUndefined();
     expect(compilation).toEqual(getCompilation());
   });
   test('should delete file when the "options" is equal "true"', () => {
