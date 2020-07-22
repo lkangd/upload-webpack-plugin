@@ -1,11 +1,12 @@
 export default function sortUploadOrder(filenames = [], extOrderTemplate = ['.css', '.js', '.html']) {
+  const toSorts = filenames.slice();
   const levelMap = new Map();
   const extOrder = extOrderTemplate.map((ext, i) => {
     const extRegExp = new RegExp(`\\${ext}$`);
     levelMap.set(extRegExp, i);
     return extRegExp;
   });
-  const all = filenames.sort((a, b) => {
+  const all = toSorts.sort((a, b) => {
     const matchExtB = extOrder.find(ext => ext.test(b));
     if (matchExtB) {
       const extLevelB = levelMap.get(matchExtB);
