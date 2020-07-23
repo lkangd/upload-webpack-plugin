@@ -7,6 +7,7 @@
     <img width="200" height="200"
       src="https://webpack.js.org/assets/icon-square-big.svg">
   </a>
+<a href="https://app.fossa.com/projects/git%2Bgithub.com%2Flkangd%2Fupload-webpack-plugin?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Flkangd%2Fupload-webpack-plugin.svg?type=shield"/></a>
 
 [![npm][npm]][npm-url]
 [![node][node]][node-url]
@@ -498,3 +499,5 @@ Default: `false`
 [glob-options]: https://github.com/sindresorhus/globby#options
 [vulnerability]: https://snyk.io/test/github/lkangd/upload-webpack-plugin/badge.svg?targetFile=package.json
 [vulnerability-url]: https://snyk.io/test/github/lkangd/upload-webpack-plugin
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Flkangd%2Fupload-webpack-plugin.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Flkangd%2Fupload-webpack-plugin?ref=badge_large)
