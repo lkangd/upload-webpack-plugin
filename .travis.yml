@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "13.9.0"
+install:
+  - npm i
+  - npm i -g codecov
+script:
+  - npm run install:fixtures
+  - npm run test:coverage && codecov
+cache:
+  directories:
+    - node_modules

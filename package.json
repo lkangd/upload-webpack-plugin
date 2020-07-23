@@ -29,7 +29,8 @@
     "test": "npm run test:coverage",
     "prepare": "npm run build",
     "release": "standard-version",
-    "defaults": "webpack-defaults"
+    "defaults": "webpack-defaults",
+    "install:fixtures": "cd ./test/fixtures && npm i"
   },
   "files": [
     "dist"

@@ -6,6 +6,8 @@ module.exports = {
   testRegex: '/test/.*\\.(test|spec)\\.(js)$',
   moduleFileExtensions: ['ts', 'tsx', 'js'],
   coveragePathIgnorePatterns: ['/node_modules/', '/test/'],
+  coverageDirectory: './coverage/',
+  collectCoverage: true,
   coverageThreshold: {
     global: {
       branches: 90,

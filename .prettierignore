@@ -3,6 +3,7 @@ dist
 node_modules
 README.md
 .vscode
+.travis.yml
 /coverage
 /example
 /test/fixtures
