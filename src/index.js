@@ -173,12 +173,11 @@ class UploadPlugin {
   grepChunkFlag(filename, chunkGroup) {
     if (chunkGroup.getParents().length === 0) return;
 
-    if (/\.css$/.test(filename)) {
-      this.cssChunksFlag = genDotSeparateRegexp(filename, 'm');
-      return;
-    }
     if (/\.js$/.test(filename)) {
       this.jsChunksFlag = genDotSeparateRegexp(filename);
+    }
+    if (/\.css$/.test(filename)) {
+      this.cssChunksFlag = genDotSeparateRegexp(filename, 'm');
     }
   }
   handleJSChunkReplace(filename, toUploadSource, chunkGroup, compilation) {
