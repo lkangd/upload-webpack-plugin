@@ -13,11 +13,13 @@ function updateUrlInSource(source, sourceName, urls, useRealFilename = false) {
   return result;
 }
 
-function wrapReplace(source, sourceName, localUrl, remoteUrl, useRealFilename = false) {
+function wrapReplace(source, sourceName, localUrl, remoteUrl, useRealFilename) {
   let toReplaceUrl = localUrl;
   if (useRealFilename) {
     const fileGlobParent = globParent(toReplaceUrl);
-    if (fileGlobParent !== '.') {
+    if (fileGlobParent === '.') {
+      toReplaceUrl = toReplaceUrl.replace(/^\.[\\/]/, '');
+    } else {
       toReplaceUrl = toReplaceUrl.replace(fileGlobParent, '');
     }
   }
@@ -31,7 +33,7 @@ function wrapReplace(source, sourceName, localUrl, remoteUrl, useRealFilename = 
     if (regExp.test(source)) {
       regExp = new RegExp(`[:=][^:=]*(['"])[^'"]*?${escapeStringRegexp(toReplaceUrl)}\\1`, 'gm');
       return source.replace(regExp, (w, $1) => {
-        const pairs = w.replace(/[^()]/g, '').replace(/()/g, '');
+        const pairs = w.replace(/[^()]/g, '').replace(/\(\)/g, '');
         return `${w[0]}${pairs}${$1}${remoteUrl}${$1}`;
       });
     }
@@ -40,7 +42,7 @@ function wrapReplace(source, sourceName, localUrl, remoteUrl, useRealFilename = 
   }
   if (/\.html$/.test(sourceName)) {
     const regExp = new RegExp(`=(['"])?\\S*?${escapeStringRegexp(toReplaceUrl)}\\1`, 'gm');
-    return source.replace(regExp, `="${remoteUrl}"`);
+    return source.replace(regExp, `=$1${remoteUrl}$1`);
   }
   return source;
 }
