@@ -1,6 +1,6 @@
 {
   "name": "upload-webpack-plugin",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A plugin for webpack which uploads file to the remote server after the files are emitted",
   "license": "MIT",
   "repository": "lkangd/upload-webpack-plugin",
