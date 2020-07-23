@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'dimmed';
+  src: url('./fonts/dimmed.woff') format('woff'), url('./fonts/dimmed.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background: url('./img/happy-boy.gif');
+}
