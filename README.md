@@ -7,6 +7,9 @@
     <img width="200" height="200"
       src="https://webpack.js.org/assets/icon-square-big.svg">
   </a>
+  <br>
+  <br>
+  <br>
 
 [![npm][npm]][npm-url]
 [![node][node]][node-url]
@@ -17,10 +20,12 @@
 [![issues][issues]][issues-url]
 [![build][build]][build-url]
 [![license][license]][license-url]
+[![PR's welcome][prs]][prs-url]
 
 <!-- [![typescript][typescript]][typescript-url] -->
 <!-- [![tests][tests]][tests-url] -->
-
+  <br>
+  <br>
 <h1>upload-webpack-plugin</h1>
 </div>
 
@@ -507,3 +512,5 @@ Default: `false`
 [issues-url]: https://github.com/lkangd/upload-webpack-plugin
 [build]: https://travis-ci.org/lkangd/upload-webpack-plugin.svg?branch=master
 [build-url]: https://travis-ci.org/github/lkangd/upload-webpack-plugin
+[prs]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg
+[prs-url]: https://github.com/lkangd/upload-webpack-plugin/blob/master/.github/CONTRIBUTING.md
