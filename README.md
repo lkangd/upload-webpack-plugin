@@ -14,6 +14,9 @@
 [![cover][cover]][cover-url]
 [![size][size]][size-url]
 [![vulnerability][vulnerability]][vulnerability-url]
+[![issues][issues]][issues-url]
+[![build][build]][build-url]
+[![license][license]][license-url]
 
 <!-- [![typescript][typescript]][typescript-url] -->
 <!-- [![tests][tests]][tests-url] -->
@@ -498,3 +501,9 @@ Default: `false`
 [glob-options]: https://github.com/sindresorhus/globby#options
 [vulnerability]: https://snyk.io/test/github/lkangd/upload-webpack-plugin/badge.svg?targetFile=package.json
 [vulnerability-url]: https://snyk.io/test/github/lkangd/upload-webpack-plugin
+[license]: https://img.shields.io/github/license/lkangd/upload-webpack-plugin
+[license-url]: https://github.com/lkangd/upload-webpack-plugin
+[issues]: https://img.shields.io/github/issues/lkangd/upload-webpack-plugin
+[issues-url]: https://github.com/lkangd/upload-webpack-plugin
+[build]: https://travis-ci.org/lkangd/upload-webpack-plugin.svg?branch=master
+[build-url]: https://travis-ci.org/github/lkangd/upload-webpack-plugin
