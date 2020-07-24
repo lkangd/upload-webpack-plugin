@@ -12,15 +12,16 @@
   <br>
 
 [![npm][npm]][npm-url]
-[![node][node]][node-url]
-[![deps][deps]][deps-url]
 [![cover][cover]][cover-url]
+[![coveralls][coveralls]][coveralls-url]
+[![node][node]][node-url]
 [![size][size]][size-url]
+[![deps][deps]][deps-url]
+[![build][build]][build-url]
 [![vulnerability][vulnerability]][vulnerability-url]
 [![issues][issues]][issues-url]
-[![build][build]][build-url]
-[![license][license]][license-url]
 [![PR's welcome][prs]][prs-url]
+[![license][license]][license-url]
 
 <!-- [![typescript][typescript]][typescript-url] -->
 <!-- [![tests][tests]][tests-url] -->
@@ -514,3 +515,5 @@ Default: `false`
 [build-url]: https://travis-ci.org/github/lkangd/upload-webpack-plugin
 [prs]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg
 [prs-url]: https://github.com/lkangd/upload-webpack-plugin/blob/master/.github/CONTRIBUTING.md
+[coveralls]: https://coveralls.io/repos/github/lkangd/upload-webpack-plugin/badge.svg?branch=master
+[coveralls-url]: https://coveralls.io/github/lkangd/upload-webpack-plugin?branch=master
