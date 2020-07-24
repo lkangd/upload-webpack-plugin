@@ -12,7 +12,7 @@ script:
   - npm run install:fixtures
   - npm run test:coverage && codecov
 after_success:
-  - cat ./coverage/lcov.info | node_modules/.bin/coveralls --verbose
+  - cat ./coverage/lcov.info | coveralls --verbose
 cache:
   directories:
     - node_modules
