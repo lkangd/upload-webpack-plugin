@@ -121,8 +121,8 @@ module.exports = {
 |**[`uploader`](#uploader)**|`{Function}`|`null`|默认上传函数
 |**[`gather`](#gather)**|`{Boolean}`|`false`|汇总上传，如果为`true`，会一次性提供所有生成的文件
 |**[`enable`](#enable)**|`{Boolean}`|`true`|是否启用插件
-|**[`include`](#include)**|`{String[]\|RegExp[]}`|`[]`|只上传指定`类型|名称`的文件
-|**[`exclude`](#exclude)**|`{String[]\|RegExp[]}`|`[]`|除了指定`类型|名称`的文件，都上传，与`include`互斥，级别比`include`高
+|**[`include`](#include)**|`{String[]\|RegExp[]}`|`[]`|只上传指定`类型\|名称`的文件
+|**[`exclude`](#exclude)**|`{String[]\|RegExp[]}`|`[]`|除了指定`类型\|名称`的文件，都上传，与`include`互斥，级别比`include`高
 |**[`clean`](#clean)**|`{Boolean\|String[]\|RegExp[]}`|`false`|删除上传成功后的资源
 |**[`muteLog`](#muteLog)**|`{Boolean}`|`false`|禁止插件所有提示
 |**[`replace.typesWithOrder`](#replacetypeswithorder)**|`{Array}`|`['.css', '.js', '.html']`|需要替换引用资源链接的文件类型和顺序
