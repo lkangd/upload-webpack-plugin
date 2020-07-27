@@ -12,8 +12,10 @@
   <br>
 
 [![npm][npm]][npm-url]
+<!-- [![downloads][downloads]][downloads-url] -->
 [![cover][cover]][cover-url]
 [![coveralls][coveralls]][coveralls-url]
+[![workflows][workflows]][workflows-url]
 [![node][node]][node-url]
 [![size][size]][size-url]
 [![deps][deps]][deps-url]
@@ -517,3 +519,7 @@ Default: `false`
 [prs-url]: https://github.com/lkangd/upload-webpack-plugin/blob/master/.github/CONTRIBUTING.md
 [coveralls]: https://coveralls.io/repos/github/lkangd/upload-webpack-plugin/badge.svg?branch=master
 [coveralls-url]: https://coveralls.io/github/lkangd/upload-webpack-plugin?branch=master
+[downloads]: https://img.shields.io/npm/dw/upload-webpack-plugin
+[downloads-url]: https://npmcharts.com/compare/upload-webpack-plugin?interval=7
+[workflows]: https://github.com/lkangd/upload-webpack-plugin/workflows/upload-webpack-plugin/badge.svg
+[workflows-url]: https://github.com/lkangd/upload-webpack-plugin/actions
