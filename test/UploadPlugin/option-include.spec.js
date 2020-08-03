@@ -16,7 +16,7 @@ describe('UploadPlugin:option-include', () => {
     document.head.innerHTML = '';
   });
   test('should replace all returned url', done => {
-    const uploader = uploaders.sync;
+    const uploader = uploaders.sync();
     const webpackConfig = getWebpackConfig(
       new UploadPlugin({
         uploader,

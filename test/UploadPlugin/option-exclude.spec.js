@@ -16,7 +16,7 @@ describe('UploadPlugin:option-exclude', () => {
     document.head.innerHTML = '';
   });
   test('should replace all returned url', done => {
-    const uploader = uploaders.sync;
+    const uploader = uploaders.sync();
     const webpackConfig = getWebpackConfig(
       new UploadPlugin({
         uploader,
@@ -36,7 +36,7 @@ describe('UploadPlugin:option-exclude', () => {
     compiler.outputFileSystem = new MemoryFs();
   });
   test('should replace all returned url', done => {
-    const uploader = uploaders.sync;
+    const uploader = uploaders.sync();
     const webpackConfig = getWebpackConfig(
       new UploadPlugin({
         uploader,
@@ -56,7 +56,7 @@ describe('UploadPlugin:option-exclude', () => {
     compiler.outputFileSystem = new MemoryFs();
   });
   test('should replace all returned url', done => {
-    const uploader = uploaders.gather;
+    const uploader = uploaders.gather();
     const webpackConfig = getWebpackConfig(
       new UploadPlugin({
         uploader,

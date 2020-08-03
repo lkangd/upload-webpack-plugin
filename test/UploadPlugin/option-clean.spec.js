@@ -16,7 +16,7 @@ describe('UploadPlugin:option-clean', () => {
     document.head.innerHTML = '';
   });
   test('should replace all returned url', done => {
-    const uploader = uploaders.sync;
+    const uploader = uploaders.sync();
     const webpackConfig = getWebpackConfig(new UploadPlugin({ uploader, options: { muteLog: true, clean: [/.*\.((?!(html)).)+/] } }));
     const compiler = webpack(webpackConfig, function callback(error, result) {
       expect(error).toBeFalsy();

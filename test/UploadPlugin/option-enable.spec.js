@@ -16,7 +16,7 @@ describe('UploadPlugin:option-enable', () => {
     document.head.innerHTML = '';
   });
   test('should do noting when option "enable" equal "false"', done => {
-    const uploader = uploaders.sync;
+    const uploader = uploaders.sync();
     const webpackConfig = getWebpackConfig(new UploadPlugin({ uploader, options: { muteLog: false, enable: false } }));
     const compiler = webpack(webpackConfig, function callback(error, result) {
       expect(error).toBeFalsy();

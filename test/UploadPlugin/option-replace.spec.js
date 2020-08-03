@@ -16,7 +16,7 @@ describe('UploadPlugin:option-replace', () => {
     document.head.innerHTML = '';
   });
   test('should replace all returned url', done => {
-    const uploader = uploaders.sync;
+    const uploader = uploaders.sync();
     const webpackConfig = getWebpackConfig(
       new UploadPlugin({
         uploader,
@@ -41,7 +41,7 @@ describe('UploadPlugin:option-replace', () => {
     compiler.outputFileSystem = new MemoryFs();
   });
   test('should replace all returned url', done => {
-    const uploader = uploaders.sync;
+    const uploader = uploaders.sync();
     const webpackConfig = getWebpackConfig(
       new UploadPlugin({
         uploader,

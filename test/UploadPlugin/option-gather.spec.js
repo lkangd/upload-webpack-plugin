@@ -16,7 +16,7 @@ describe('UploadPlugin:option-gather', () => {
     document.head.innerHTML = '';
   });
   test('should replace all returned url', done => {
-    const uploader = uploaders.gather;
+    const uploader = uploaders.gather();
     const webpackConfig = getWebpackConfig(new UploadPlugin({ uploader, options: { gather: true, muteLog: true } }));
     const compiler = webpack(webpackConfig, function callback(error, result) {
       expect(error).toBeFalsy();
@@ -31,7 +31,7 @@ describe('UploadPlugin:option-gather', () => {
     compiler.outputFileSystem = new MemoryFs();
   });
   test('should not replace all returned url', done => {
-    const uploader = uploaders.gatherVoidReturn;
+    const uploader = uploaders.gatherVoidReturn();
     const webpackConfig = getWebpackConfig(new UploadPlugin({ uploader, options: { gather: true, muteLog: true } }));
     const compiler = webpack(webpackConfig, function callback(error, result) {
       expect(error).toBeFalsy();
