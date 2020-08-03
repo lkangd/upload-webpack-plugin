@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const UploadWebpackPlugin = require('../../dist/cjs');
+const UploadWebpackPlugin = require('../dist/cjs');
 const uploaders = require('./uploaders');
 const PUBLIC_PATH = 'https://cdn.lkangd.com/';
 
@@ -64,7 +64,7 @@ module.exports = {
     ],
   },
   optimization: {
-    // minimize: false,
+    minimize: false,
     splitChunks: {
       cacheGroups: {
         common: {
