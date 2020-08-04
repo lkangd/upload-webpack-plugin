@@ -21,11 +21,10 @@ describe('UploadPlugin:option-clean', () => {
     const compiler = webpack(webpackConfig, function callback(error, result) {
       expect(error).toBeFalsy();
       expect(result.compilation.errors.length).toBe(0);
-      // const js = result.compilation.assets['file.js'].source();
-      // eval(js);
-      // const scripts = document.head.getElementsByTagName('script');
-      // expect(scripts.length).toBe(1);
-      // expect(scripts[0].src).toBe('http://localhost/0.js');
+
+      const keys = Object.keys(result.compilation.assets);
+      expect(keys.length).toBe(2);
+      expect(keys.every(key => /\.html$/.test(key))).toBeTruthy();
       done();
     });
     compiler.outputFileSystem = new MemoryFs();
