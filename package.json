@@ -41,7 +41,7 @@
   "dependencies": {
     "chalk": "^4.1.0",
     "escape-string-regexp": "^4.0.0",
-    "glob-parent": "^5.1.1",
+    "glob-parent": "^5.1.2",
     "ora": "^4.0.5",
     "schema-utils": "^2.7.0"
   },
