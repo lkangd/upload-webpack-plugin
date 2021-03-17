@@ -42,7 +42,7 @@
     "chalk": "^4.1.0",
     "escape-string-regexp": "^4.0.0",
     "glob-parent": "^5.1.1",
-    "ora": "^4.0.5",
+    "ora": "^5.4.0",
     "schema-utils": "^2.7.0"
   },
   "devDependencies": {
